@@ -14,10 +14,17 @@ For any question and comments, please contact us using HUIPING001@e.ntu.edu.sg
 2. Pytorch 1.0
 3. CUDA 10.1
 
+## Algorithm illustration 
+
+![](FDG_flow.png)
+
 ## Some notation
 K is the number of split modules; *β* is a gradient shrinking factor (for *β*=1, there is no gradient shrinking); <sup>\*</sup>  means the results are rerun.
 
 ## Results
+
+### Setting
+We use SGD optimizer with an initial learning rate of 0.1. The momentum and weight decay are set as 0.9 and $5\times 10^{-4}$ respectively. All the models are trained using a batch size of 128 for 300 epochs. The learning rate is divided by 10 at 150, 225 and 275 epochs. Our experiments are run using one or more Tesla K80 GPUs. The test errors of the FDG are reported by the median of 3 runs.
 
 ### K=2, CIFAR-10
 
