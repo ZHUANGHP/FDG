@@ -45,7 +45,7 @@ We use SGD optimizer with an initial learning rate of 0.1. The momentum and weig
 | ResNet-18    |   11.2M   | 22.35%<sup>\*</sup>            |   \-   | 22.78%(*β*=1)/**22.18**%(*β*=0.5) |
 | WRN-28-10    |   36.5M   | 19.2%                          |   \-   | 20.28%(*β*=1)/**19.08**%(*β*=0.6) |
 
-### For multiple GPUs (CIFAR-100 with ResNet-56)
+### For multiple GPUs (CIFAR-10 with ResNet-56)
 
 |   Method   |            Test error           |  Time  |
 |:----------:|:-------------------------------:|:------:|
