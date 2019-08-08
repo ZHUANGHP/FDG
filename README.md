@@ -2,7 +2,9 @@
 
 ## Introduction
 
-This repository provides the PyTorch codes for the paper "Fully Decoupled Neural Network Learning Using Delayed Gradients" http://arxiv.org/abs/1906.09108.
+This repository provides the PyTorch codes for the paper "Fully Decoupled Neural Network Learning Using Delayed Gradients" http://arxiv.org/abs/1906.09108. 
+
+- There will be further revisions for the manuscript and code.
 
 The FDG splits a neural network into multiple modules that are trained independently and asynchronously in different GPUs. We also introduce a gradient shrinking process to reduce the stale gradient effect caused by the delayed gradients. The proposed FDG is able to train very deep networks (>100 layers) and very large networks (>35 million parameters) with significant speed gains while outperforming the state-of-the-art methods and the standard BP.
 
