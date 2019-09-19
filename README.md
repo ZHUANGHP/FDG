@@ -4,12 +4,7 @@
 
 This repository provides the PyTorch codes for the paper "Fully Decoupled Neural Network Learning Using Delayed Gradients" http://arxiv.org/abs/1906.09108. 
 
-```diff
-- There will be further revisions for the manuscript and code.
-```
-
-
-The FDG splits a neural network into multiple modules that are trained independently and asynchronously in different GPUs. We also introduce a gradient shrinking process to reduce the stale gradient effect caused by the delayed gradients. The proposed FDG is able to train very deep networks (>100 layers) and very large networks (>35 million parameters) with significant speed gains while outperforming the state-of-the-art methods and the standard BP.
+The FDG splits a neural network into multiple modules that are trained independently and asynchronously in different GPUs. We also introduce a gradient shrinking process to reduce the stale gradient effect caused by the delayed gradients. The proposed FDG is able to train very deep networks (>1000 layers) and very large networks (>35 million parameters) with significant speed gains while outperforming the state-of-the-art methods and the standard BP.
 
 For any question and comments, please contact us using HUIPING001@e.ntu.edu.sg
 
@@ -21,7 +16,7 @@ For any question and comments, please contact us using HUIPING001@e.ntu.edu.sg
 
 ## Algorithm illustration 
 
-![](FDG_flow.png)
+![](FDG_algorithm.png)
 
 ## Some notation
 K is the number of split modules; *β* is a gradient shrinking factor (for *β*=1, there is no gradient shrinking); <sup>\*</sup>  means the results are rerun.
@@ -29,7 +24,7 @@ K is the number of split modules; *β* is a gradient shrinking factor (for *β*=
 ## Results
 
 ### Setting
-We use SGD optimizer with an initial learning rate of 0.1. The momentum and weight decay are set as 0.9 and $5\times 10^{-4}$ respectively. All the models are trained using a batch size of 128 for 300 epochs. The learning rate is divided by 10 at 150, 225 and 275 epochs. Our experiments are run using one or more Tesla K80 GPUs. The test errors of the FDG are reported by the median of 3 runs.
+We use SGD optimizer with an initial learning rate of 0.1. The momentum and weight decay are set as 0.9 and $5\times 10^{-4}$ respectively. All the models are trained using a batch size of 128 for 300 epochs. The learning rate is divided by 10 at 150, 225 and 275 epochs. The test errors of the FDG are reported by the median of 3 runs.
 
 ### K=2, CIFAR-10
 
@@ -49,7 +44,7 @@ We use SGD optimizer with an initial learning rate of 0.1. The momentum and weig
 | ResNet-56    |   0.46M   | 30.21%/27.68%<sup>\*</sup> | 29.83%/28.44%<sup>\*</sup> |29.51%<sup>\*</sup> |28.39%<sup>\*</sup>|  27.87%(*β*=1)/**27.49%**(*β*=0.4)   |
 | ResNet-110   |   1.70M   | 28.10%/25.82%<sup>\*</sup>     | 28.61%/27.16%<sup>\*</sup> |26.80%<sup>\*</sup>|26.31%<sup>\*</sup>| 25.73%(*β*=1)/**25.43**%(*β*=0.5) |
 | ResNet-18    |   11.2M   | 22.35%<sup>\*</sup>            |   22.74%<sup>\*</sup>   |22.24%<sup>\*</sup>|22.88%<sup>\*</sup>| 22.78%(*β*=1)/**22.18**%(*β*=0.5) |
-| WRN-28-10    |   36.5M   | 19.2%                          |   \-   ||| 20.28%(*β*=1)/**19.08**%(*β*=0.6) |
+| WRN-28-10    |   36.5M   | 19.2%/19.6%<sup>\*</sup>                            |   \-   |\-|\-| 20.28%(*β*=1)/**19.08**%(*β*=0.6) |
 
 ### For multiple GPUs (CIFAR-10 with ResNet-56)
 
