@@ -55,6 +55,8 @@ We use SGD optimizer with an initial learning rate of 0.1. The momentum and weig
 | *K*=4 | 6.19% |6.61%<sup>\*</sup>|9.65%<sup>\*</sup>|6.48%<sup>\*</sup>|6.83%(*β*=1)/**6.14**%(*β*=0.5)|
 
 ### Time Performance
+We provide the time performances of several techniques including the data parallelization (DP). Under similar GPU utilization, our FDG is the fastest among the methods.
+![](table_time.png)
 ## Citation
 ```
 @article{Zhuang2019,
